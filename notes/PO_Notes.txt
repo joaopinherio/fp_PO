@@ -1,0 +1,21 @@
+Aula 26/09
+
+KEY WORDS:
+
+-Atributos
+-Instanciar (Fazer uma copia do objeto)
+-Encapsulamento
+
+exemplos:
+
+Public <- ORLA
+Private <- Clube
+Protected <- Condominio
+
+Metodos basicos: (de facil replicacao para diferentes aplicacoes)
+
+Constructor
+
+Getters
+Setters 
+(ambos ligados ao private)
