@@ -1,4 +1,4 @@
-Aula 26/09
+--Aula 26/09
 
 KEY WORDS:
 
@@ -19,3 +19,80 @@ Constructor
 Getters
 Setters 
 (ambos ligados ao private)
+
+--Aula 29/09--
+
+Conceitos de PO
+
+Construtor da classe
+
+public class ClasseBase{
+    //atributos
+
+    //Construtor -> ClasseBase "mesmo nome da clase" (){
+        Se eu nao passar nenhu parametro devo inicializar dentro do construtor
+        (mesma coisa de metodos)
+    }
+}
+
+public class ContaCorrente{
+    //atributos
+
+    construtor ContaCorrente(){
+        nome = "  ";
+        CPF = 0000;
+        Saldo = 0.0;
+    }
+}
+//instanciando obj
+Classe app{
+
+    ContaCorrente contacorrente1 = new ContaCorrente(); //sem parametros pois eles nao foram implementados no construtor = a metodo
+
+}
+
+public class ContaCorrente{
+    //atributos
+
+    construtor ContaCorrente(){
+        nome = "  ";
+        CPF = 0000;
+        Saldo = 0.0;
+    }
+}
+
+public class Pessoa {
+    private String nome;
+    private int idade;
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+    // Método toString
+    public String toString() {
+        return "Nome: " + nome + ", Idade: " + idade;
+    }
+
+ 
+public class principal{
+    public static void main(String[] args) {
+    //Criando uma instância da classe Pessoa
+    Pessoa pessoa1 = new Pessoa("João", 25);
+
+    //Chamando o método toString para obter uma representação de string
+    String representacaoString = pessoa1.toString();
+
+    // Exibindo a representação de string no console
+    System.out.println(representacaoString);
+    }
+ }
+
+public String getNome(){
+    return nome;
+}
+
+public void serIdade(int idade){
+    this.idade = idade;
+}
+
