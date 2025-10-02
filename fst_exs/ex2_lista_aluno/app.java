@@ -6,17 +6,24 @@ public class app{
         Scanner in = new Scanner (System.in);
         Aluno aluno1 = new Aluno("Joao", 80402451);
 
-        aluno1.set_P1(8.5);
-        aluno1.set_P2(9);
-        aluno1.set_P3(7);
+        aluno1.set_P1(5);
+        aluno1.set_P2(5);
+        aluno1.set_P3(5);
 
-        aluno1.set_exs_med(8);
+        aluno1.set_exs_med(5);
         aluno1.set_freq(80);
 
-        String results = aluno1.toString();
+        //String results = aluno1.toString();
 
-        System.out.println(results);
+        double G1 = aluno1.get_G1();
 
+        System.out.println(G1);
 
+        if(G1 < 7){
+            System.out.println("Sua nota G1 nao foi suficiente\nEscreva a nota da sua G2");
+            aluno1.set_G2(in.nextDouble());
+        }
+
+        
     }
 }

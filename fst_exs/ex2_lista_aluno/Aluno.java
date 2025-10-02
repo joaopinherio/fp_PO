@@ -5,6 +5,8 @@ public class Aluno{
     public double P1, P2, P3;
     public double exs_med;
     public double freq;
+    public double G1;
+    public double G2;
 
     public Aluno(String nome, int matricula){
         this.nome = nome;
@@ -31,9 +33,24 @@ public class Aluno{
         this.freq = freq;
     }
 
-    public String toString(){
-        return "Suas notas:" + P1 + P2 + P3;
+    public void set_G2(double G2){
+        this.G2 = G2;
     }
+
+    public double get_G1(){
+        return (P1 + P2 + P3 + exs_med)/4;
+    }
+    
+    public String toString(){
+        if(G1 < 7){
+            return "Suas G1: " + G1 + "\nVoce foi aprovado " ;
+        }else{
+            return "Sua G1: " + G1 + "\nVoce foi reprovado " ;
+        }
+    }
+
+
+
 
 
 
