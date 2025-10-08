@@ -1,13 +1,14 @@
-public class Ventilador{
+public class Ingresso{
     //atributos
-    private boolean ligado;
-    private int velocidade;
-    private String marca;
+    private String numero;
+    private String comprador;
+    private double valor_pago;
 
-    public Ventilador(String marca){
-        this.marca = marca;
-        this.ligado = false;
-        this.velocidade = 1;
+    
+    public Ingresso(String numero, String comprador, double valor_pago){
+        this.numero = numero;
+        this.comprador = comprador;
+        this.valor_pago = valor_pago;
     }
 
     public void ligar(){

@@ -1,0 +1,64 @@
+Exercício Desafio – Sistema de Vendas de Ingressos
+Descrição do Problema: Você deve desenvolver um programa que simule a venda de ingressos para um evento com capacidade máxima de 2 pessoas.
+Cada pessoa pode comprar no máximo 1 ingresso.
+Regras do Negócio:
+    
+1.	O evento tem:
+o	Nome
+o	Local
+o	Capacidade máxima de 2 ingressos
+o	Valor do ingresso (positivo)
+
+2.	O ingresso tem:
+o	Número (1 ou 2)
+o	Nome do comprador
+o	Valor pago
+
+3.	O sistema deve:
+o	Impedir a venda de ingresso com valor menor que o preço oficial.
+o	Impedir que mais de 2 ingressos sejam vendidos.
+o	Impedir que a mesma pessoa compre dois ingressos.
+o	Calcular o total arrecadado.
+
+Classes sugeridas:
+Classe Evento
+•	Atributos:
+o	nome
+o	local
+o	precoIngresso
+o	ingresso1 (Ingresso)
+o	ingresso2 (Ingresso)
+
+
+
+•	Métodos:
+o	Construtor com validação do preço.
+o	venderIngresso(String comprador, double valorPago) →
+	verifica se ainda há ingresso disponível;
+	verifica se o comprador não é repetido;
+	verifica se valorPago ≥ preço oficial;
+	cria um ingresso (1 ou 2).
+o	calcularTotalArrecadado()
+o	toString() para mostrar informações do evento e dos ingressos vendidos.
+Classe Ingresso
+•	Atributos:
+o	numero
+o	comprador
+o	valorPago
+•	Métodos:
+o	Construtor
+o	Getters/Setters
+o	toString()
+Classe Principal
+•	Crie um evento.
+•	Simule:
+o	Venda de ingresso 1 (válida)
+o	Venda de ingresso 2 (válida)
+o	Tentativa de uma terceira venda (deve falhar).
+•	Exiba as informações do evento e total arrecadado.
+
+ Desafios Extras (opcional):¬
+•	Impedir que o mesmo nome de comprador compre duas vezes.
+•	Permitir cancelamento de um ingresso.
+•	Reverter o ingresso cancelado para disponível.
+•	Permitir que o aluno altere o preço do ingresso (apenas antes da primeira venda).
