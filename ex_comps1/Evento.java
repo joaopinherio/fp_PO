@@ -4,45 +4,20 @@ public class Evento{
     private String local;
     private double preco_ing;
 
-    
 
-    public Evento(String marca){
-        this.marca = marca;
-        this.ligado = false;
-        this.velocidade = 1;
+    public Evento(String nome, String local, double preco_ing){
+        this.nome = nome;
+        this.local = local;
+        p_warning();
+        this.preco_ing = preco_ing;
     }
 
-    public void ligar(){
-        this.ligado = get_estado_velo(velocidade);
+    private void p_warning(){
+        System.out.println("Digite um valor positivo para o preco do ingresso");
     }
 
-    public void aumentarVelocidade(int velocidade){
-        this.velocidade = velocidade;
+    public double get_preco_ing(){
+        return preco_ing;
     }
-
-    public void diminuiVelocidade(int velocidade){
-        this.velocidade = velocidade;
-    }
-
-    private boolean get_estado_velo(int velocidade){
-        if(velocidade > 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public boolean get_Ligado(){
-        return ligado;
-    }
-
-    public String mostrarEstado(){
-        if(ligado == true){
-            return "Ventilador de marca: " + marca + " esta na velocidade: " + velocidade +  " esta ligado";
-        }else{
-            return "Ventilador de marca: " + marca + " esta na velocidade: " + velocidade +  " esta desligado";
-        }
-    }
-
 
 }
