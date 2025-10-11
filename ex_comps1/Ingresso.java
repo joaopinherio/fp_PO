@@ -1,5 +1,4 @@
 
-import java.nio.IntBuffer;
 
 public class Ingresso{
     //atributos
@@ -8,13 +7,14 @@ public class Ingresso{
     private double valor_pago;
     private Evento evento;
     private double preco_ing;
+    private String nome_evento;
 
     public Ingresso(int numero, String comprador, double valor_pago, Evento evento){
         this.numero = numero;
         this.comprador = comprador;
         this.valor_pago = valor_pago;
-        this.evento = evento;
-        preco_ing = evento.get_preco_ing();
+        this.preco_ing = evento.get_preco_ing();
+        this.nome_evento = evento.get_nome();
     }
 
   /* 
@@ -41,6 +41,10 @@ public class Ingresso{
 
     public double get_valor(){
         return valor_pago;
+    }
+
+    public String ToString(){
+        return "Ingresso para o " + nome_evento + " confirmado!\n" + "No nome de: " + comprador;  
     }
 
 

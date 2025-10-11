@@ -5,9 +5,23 @@ public class AppSys{
 
         Scanner in = new Scanner (System.in);
 
-        Evento evento1 = new Evento("idioteque", "POA", 9.90);
+        System.out.println("Bem vindo a venda de ingressos");
+        System.out.println("Selecionne o novo do evento que deseja assistir");
+        String nome_evento = in.nextLine();
 
-        Ingresso ingresso1 = new Ingresso(1, "joao", 10, evento1);
+        Evento evento1 = new Evento(nome_evento, "POA", 9.90);
+
+        int count_ingresso = 0;
+        
+        System.out.println("Qual o numero de ingressos?");
+        int num_ingresso = in.nextInt();
+
+        System.out.println("Qual seu nome?");
+        String nome_comprador = in.nextLine();
+
+        System.out.println("Insira o valor de pagamento (Preco do ingresso: " + evento1.get_preco_ing() + ")");
+
+        Ingresso ingresso1 = new Ingresso(num_ingresso, nome_comprador , 9, evento1);
 
         String ingresso = "";
         
@@ -19,21 +33,9 @@ public class AppSys{
             System.out.println("O valor pago nao eh compativel com o valor do evento");
             ingresso = "ingresso invalido";
         } else{
-            
+            ingresso = ingresso1.ToString();
         }
 
-        String estado = ventilador1.mostrarEstado();
-        System.out.println("Primeiro estado:");
-        System.out.println(estado+ "\n");
-
-        ventilador1.ligar();
-        
-        ventilador1.aumentarVelocidade(0);
-        ventilador1.ligar();
-
-        System.out.println("Segundo estado:");
-        estado = ventilador1.mostrarEstado();
-    
-        System.out.println(estado);
+        System.out.println(ingresso);
     }
 }
