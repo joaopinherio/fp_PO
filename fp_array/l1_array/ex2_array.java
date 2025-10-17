@@ -1,13 +1,12 @@
 /*
- * 1) Exercício de contextualização:
-Crie um vetor de 20 elementos, do tipo double, com nome numeros.
-Armazenar valores no vetor.
-Mostrar em tela: Quantos elementos o vetor possui, os valores e seus respectivos índices.
+Escreva um programa que lê um valor n inteiro e guarde em um vetor os n primeiros 
+termos da série de Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, ... O programa deve escrever o vetor, ao seu final. 
+(Obs.: n determina a quantidade de elementos que você quer mostrar da serie Fibo)
  */
 
 import java.util.Scanner;
 
-public class ex1_array{
+public class ex2_array{
     public static void main(String[] args){
 
         Scanner in = new Scanner (System.in);
