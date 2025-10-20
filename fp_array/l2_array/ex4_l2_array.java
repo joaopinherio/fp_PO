@@ -1,14 +1,11 @@
 /*
-Um banco concederá um crédito especial aos seus clientes, variável com o saldo médio no
-último ano. Faça um programa que leia o saldo médio de 30 clientes, em um vetor, e calcule
-o valor do crédito, de acordo com a tabela abaixo, e armazene esses valores em outro vetor.
-O final do programa exiba os dois vetores. Implemente um método para calcular o valor do
-crédito e também para ler e escrever os vetores.
+Escreva um programa que leia 30 valores reais, todos pertencentes ao intervalo [0;10], calcule
+a média aritmética desses valores. Os valores devem ser inseridos em um vetor.
  */
 
 import java.util.Scanner;
 
-public class ex3_l2_array{
+public class ex4_l2_array{
     public static void main(String[] args){
 
         Scanner in = new Scanner (System.in);
