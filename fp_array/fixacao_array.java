@@ -52,7 +52,7 @@ public class fixacao_array {
         print_All(V_menos1);
 
         //System.out.println("\nadc um valor:");
-        //double[] V_mais1 = adcValor(sensor1);
+        //double[] V_mais1 = adcValor(sensor1); 
 
     }
 
@@ -173,7 +173,10 @@ public class fixacao_array {
         return aux;
         */
         for(int i = 0; i < aux.length; i++){
-            if((i+1) == r_element) i++;
+            if((i+1) == r_element){
+                i++;
+                aux[(i-1)] = a[i];
+            }
             aux[i] = a[i];
         }
     return aux;
