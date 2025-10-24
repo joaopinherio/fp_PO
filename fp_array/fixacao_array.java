@@ -7,12 +7,12 @@ public class fixacao_array {
 
         Scanner in = new Scanner(System.in);
 
-        double[] sensor1 = new double[3];
-        double[] sensor2 = new double[3];
-        double[] Vresult = new double[3];
+        double[] sensor1 = new double[4];
+        double[] sensor2 = new double[4];
+        double[] Vresult = new double[4];
         double[] Vconcat = new double[(sensor1.length + sensor2.length)];
 
-        double[] Vclone = new double[3];
+        double[] Vclone = new double[4];
 
         get_temps(sensor1);
         get_temps(sensor2);
@@ -46,7 +46,7 @@ public class fixacao_array {
         System.out.println("\nIntersecao dos vetores:");
         print_All(V_intersec);
 
-        double[] V_menos1 = removeE(sensor1, 1);
+        double[] V_menos1 = removeE(sensor1, 2);
         
         System.out.println("\nVetor com 1 dado removido:");
         print_All(V_menos1);
@@ -158,17 +158,25 @@ public class fixacao_array {
         return aux;
     }
 
-    public static double[] removeE(double a[], double r_element) {
+    public static double[] removeE(double a[], int r_element) {
         double aux[] = new double[a.length - 1];
 
+        /*
+         
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < aux.length; j++) {
-                if ((i+1) == r_element) {
-                    aux[j] = a[i++];
-                }else aux[j] = a[i];
+                if ((i+1) != r_element) {
+                    aux[j] = a[i];
+                }
             }
         }
         return aux;
+        */
+        for(int i = 0; i < aux.length; i++){
+            if((i+1) == r_element) i++;
+            aux[i] = a[i];
+        }
+    return aux;
     }
 
     //metodo casca
