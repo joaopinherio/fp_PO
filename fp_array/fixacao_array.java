@@ -1,7 +1,8 @@
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class fixacao_array {
+
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
@@ -13,66 +14,66 @@ public class fixacao_array {
 
         double[] Vclone = new double[3];
 
-        
-        
-        
         get_temps(sensor1);
         get_temps(sensor2);
         Vclone = clone(sensor1);
-        
+
         System.out.println("Temperaturas do sensor 1:");
         print_All(sensor1);
-        
+
         System.out.println("\nCLONE do sensor 1:");
         print_All(Vclone);
-        
+
         System.out.println("\nTemperaturas do sensor 2:");
         print_All(sensor2);
-        
+
         System.out.println("\nSUB VALOR:");
         print_All(substituiValor(sensor1));
-        
+
         // System.out.println("\nTemperaturas do sensor 2:");
         // print_All(sensor2);
-        
         // Vresult = get_Sub(sensor1, sensor2, Vresult);
-        
         // System.out.println("\nsubtracao 1 - 2");.
         // print_All(Vresult);
-        
         System.out.println("\nHAHAHA");
         // sensor1 = inverte_parimpar(sensor1);
         Vconcat = concatenar(sensor1, sensor2);
-        
+
         print_All(Vconcat);
+
+        double[] V_intersec = IntersecVet(sensor1, sensor2);
+
+        System.out.println("\nIntersecao dos vetores:");
+        print_All(V_intersec);
+
+        double[] V_menos1 = removeE(sensor1, 1);
         
-        double[] Vuniao = uniaoVet(sensor1, sensor2);
+        System.out.println("\nVetor com 1 dado removido:");
+        print_All(V_menos1);
 
-        System.out.println("\nUniao dos vetores:");
-        print_All(Vuniao);
-
+        //System.out.println("\nadc um valor:");
+        //double[] V_mais1 = adcValor(sensor1);
 
     }
 
-    /*
-     * public static double[] get_array(double a[]){
-     * Scanner in = new Scanner (System.in);
-     * for (int i = 0; i < a.length; i++){
-     * System.out.println("informe um numero: ");
-     * a [i] = in.nextDouble();
-     * }
-     * return a;
-     * }
-     * 
-     */
     public static double[] get_temps(double a[]) {
+        Scanner in = new Scanner(System.in);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("informe um numero: ");
+            a[i] = in.nextDouble();
+        }
+        return a;
+    }
+
+    /*
+            public static double[] get_temps(double a[]) {
         Random randomGenerator = new Random();
         for (int i = 0; i < a.length; i++) {
             a[i] = randomGenerator.nextInt(10000);
         }
         return a;
     }
-
+     */
     public static double[] get_Sub(double a[], double b[], double result[]) {
         for (int i = 0; i < a.length; i++) {
             result[i] = a[i] - b[i];
@@ -82,7 +83,7 @@ public class fixacao_array {
 
     public static void print_All(double a[]) {
         for (int i = 0; i < a.length; i++) {
-            System.out.println("Temperatura: " + (i + 1) + ": " + a[i]);
+            System.out.println("Temperatura " + (i + 1) + ": " + a[i]);
         }
     }
 
@@ -120,20 +121,51 @@ public class fixacao_array {
         return aux;
     }
 
-    public static double[] uniaoVet(double a[], double b[]) {
-        int length_count = 0;
+    public static double[] IntersecVet(double a[], double b[]) {
+        int lesser_length = 0;
+        if (a.length < b.length) {
+            lesser_length = a.length; 
+        }else {
+            lesser_length = b.length;
+        }
 
-        for (int i = 0; i < a.length + b.length; i++) {
+        int length_count = 0;
+        for (int i = 0; i < lesser_length; i++) {
             if (a[i] == b[i]) {
                 length_count++;
             }
         }
         double aux[] = new double[length_count];
+        /*
+        
         int j = 0;
-        for (int i = 0; i < a.length + b.length; i++) {
+        for (int i = 0; i < lesser_length; i++) {
             if (a[i] == b[i]) {
                 aux[j] = a[i];
-                j++;
+            }
+            if(j < lesser_length-1)j++;
+        }
+        return aux;
+         */
+
+        for (int i = 0; i < lesser_length; i++) {
+            for (int j = 0; j < aux.length; j++) {
+                if (a[i] == b[i]) {
+                    aux[j] = a[i];
+                }
+            }
+        }
+        return aux;
+    }
+
+    public static double[] removeE(double a[], double r_element) {
+        double aux[] = new double[a.length - 1];
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < aux.length; j++) {
+                if ((i+1) == r_element) {
+                    aux[j] = a[i++];
+                }else aux[j] = a[i];
             }
         }
         return aux;
@@ -149,6 +181,20 @@ public class fixacao_array {
                 aux[i] = par;
             } else if (i % 2 == 1) {
                 aux[i] = impar;
+            }
+        }
+        return aux;
+    }
+
+    public static double[] adcValor(double vet[]) {
+        Scanner in = new Scanner(System.in);
+        
+        double aux[] = new double[vet.length + 1];
+        for (int i = 0; i <= aux.length - 1; i++) {
+            aux[i] = vet[i];
+            if (aux.length > vet.length) {
+                System.out.println("diga um valor que deseja adicionar ao vetor: ");
+                aux[i] = in.nextDouble();
             }
         }
         return aux;
