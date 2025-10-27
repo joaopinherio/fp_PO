@@ -45,7 +45,6 @@ public class ex3_mat{
     public static void print_diagMat(int m[][]){
         
         int count_l = 0, count_c = 0;
-        int sum = 0;
         for (int i = 0 ; i < m.length; i++) {
             for(int j = 0; j < m.length; j++){
                 if(j == count_l && i == count_c){
