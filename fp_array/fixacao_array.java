@@ -7,12 +7,14 @@ public class fixacao_array {
 
         Scanner in = new Scanner(System.in);
 
-        double[] sensor1 = new double[4];
-        double[] sensor2 = new double[4];
-        double[] Vresult = new double[4];
+        int global_size = 20;
+
+        double[] sensor1 = new double[global_size];
+        double[] sensor2 = new double[global_size];
+        double[] Vresult = new double[global_size];
         double[] Vconcat = new double[(sensor1.length + sensor2.length)];
 
-        double[] Vclone = new double[4];
+        double[] Vclone = new double[global_size];
 
         get_temps(sensor1);
         get_temps(sensor2);
@@ -30,11 +32,11 @@ public class fixacao_array {
         System.out.println("\nSUB VALOR:");
         print_All(substituiValor(sensor1));
 
-        // System.out.println("\nTemperaturas do sensor 2:");
-        // print_All(sensor2);
-        // Vresult = get_Sub(sensor1, sensor2, Vresult);
-        // System.out.println("\nsubtracao 1 - 2");.
-        // print_All(Vresult);
+        System.out.println("\nTemperaturas do sensor 2:");
+        print_All(sensor2);
+        Vresult = get_Sub(sensor1, sensor2, Vresult);
+        System.out.println("\nsubtracao 1 - 2");
+        print_All(Vresult);
         System.out.println("\nHAHAHA");
         // sensor1 = inverte_parimpar(sensor1);
         Vconcat = concatenar(sensor1, sensor2);
