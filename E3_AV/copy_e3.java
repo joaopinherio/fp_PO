@@ -22,9 +22,10 @@ public class copy_e3{
 
         //System.out.println("Escreva o numero da linha que voce quer a soma dos elementos: ");
         //int linha = in.nextInt();
-        //print_array(somaPorLinha(matriz1));
+        System.out.println("\nVetor maximo por linha:");
+        print_array(somaPorLinha(matriz1));
 
-        System.out.println("vetor maximo por coluna");
+        System.out.println("\nvetor maximo por coluna");
         print_array(maximoPorColuna(matriz1));
 
         System.out.println("\ntransposta: ");
@@ -62,7 +63,7 @@ public class copy_e3{
         int maior = 0;
     
         for(int i = 0; i < m.length; i++){
-            for(int j = 0; i < m[0].length; j++){ 
+            for(int j = 0; j < m[0].length; j++){ 
                 if(maior == 0) maior = m[i][j];
                 if(m[i][j] > maior) maior = m[i][j];
                 aux_vet [y] = maior;
