@@ -1,0 +1,7 @@
+    insere
+    remove 
+    consulta
+
+    sempre terao esses metodos
+
+
