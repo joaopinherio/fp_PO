@@ -1,11 +1,18 @@
 
-public class Caderno_Reservas{
+//public class Controle_Mesa{
 
-    private Reserva [] vetor;
+/*Fazer um metodo na classe para que assim que a classe seja chamada
+ * todas as mesas sejam geradas sem ocupação, se elas forem ocupadas
+ * -> tirar das opções do vetor
+ * 
+ * metodo de procura de apenas mesas livres
+ */
+
+    private Mesa [] vetor;
     private int index;
     //constructor
-    public Caderno_Reservas(int len){   
-        vetor = new Reserva[len];
+    public Controle(int len){   
+        vetor = new Livro[len];
         index = 0;
     }
 
