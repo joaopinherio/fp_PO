@@ -1,94 +1,45 @@
+public class Reserva{
 
-public class Caderno_Reservas{
-
-    private Reserva [] vetor;
-    private int index;
+    private Cliente cliente;
+    private Mesa mesa;
+    private String data_hora;
+    private String titulo;
+    private String autor;
+    private int ano;
+    private int codigo;
     //constructor
-    public Caderno_Reservas(int len){   
-        vetor = new Reserva[len];
-        index = 0;
+    public Reserva(Cliente cliente, Mesa mesa, String data_hora){   
+        this.cliente = cliente;
+        this.mesa = mesa;
+        this.data_hora = data_hora;
     }
 
-    public boolean addVet(Livro a){
-        int code_check = fetch(a);
-        if(index >= vetor.length || code_check != -1){
-            return false;
-        } else {
-            vetor[index] = a;
-            index++;
-            return true;
-        }
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
     }
 
-    public boolean rmv_bycode (int codigo){
-        int pos = fetch_bycode(codigo);
-        if(pos == -1){
-            return false;
-        } else {
-            for(int i = pos; i < index-1; i++){
-                vetor[i] = vetor[i+1];
-            }
-            vetor[index-1] = null;
-            index--;
-            return true;
-        }
-    }
-    
-    public int fetch (Livro v){
-        int pos = -1;
-        int codigo = v.get_codigo();
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        return pos;
+    public void setTitulo(String titulo){
+        this.titulo = titulo;
     }
 
-    public int fetch_bycode (int codigo){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        return pos;
+    public void setAutor(String autor){
+        this.autor = autor;
     }
 
-    public void fetch_bycode_print (int codigo){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        if(pos == -1) System.out.println("A estante nao possui livros com esse codigo");
-        else System.out.println(vetor[pos]);
-    }
-    /*  
-     * 
-     public int fetch_byauthor (Livro v){
-        int pos = -1;
-        String autor = v.get_autor();
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        return pos;
-    }
-    */
-
-    public void fetch_byauthor (String autor){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        if(pos == -1)System.out.println("A estante nao possui livros com esse autor");
-        else System.out.println(vetor[pos]);
+    public void setAno(int ano){
+        this.ano = ano;
     }
 
-
-
-
-    public void print_vet(){
-        for(int i = 0; i < index; i++){
-            System.out.println("\nLivro: " + (i+1) + ":" + vetor[i].toString());
-        }
+    public int get_codigo(){
+        return codigo;
     }
 
-
+    public String get_autor(){
+        return autor;
+    }
+    //metodo string
+    public String toString(){
+        return " Livro " + titulo + " do autor " + autor + " do ano: " + ano + ", possui codigo:  " + codigo;
+    }
     
 }
