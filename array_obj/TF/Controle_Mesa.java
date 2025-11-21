@@ -59,13 +59,11 @@ public class Controle_Mesa{
         return pos;
     }
 
-    public void fetch_byID_print (int id){
-        int pos = -1;
+    public Mesa fetch_Mesa (int id){
         for(int i = 0; i < index; i++){
-            if(vetor[i].get_ID() == id) pos = i;
+            if(vetor[i].get_ID() == id) return vetor[i];
         }
-        if(pos == -1) System.out.println("A estante nao possui livros com esse codigo");
-        else System.out.println(vetor[pos]);
+        return null;
     }
 
     public void print_vet(){
