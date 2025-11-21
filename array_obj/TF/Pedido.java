@@ -1,94 +1,68 @@
+public class Pedido {
 
-public class Estante{
-
-    private Livro [] vetor;
+    private Pedido[] vetor;
     private int index;
+    private Caderno_Reservas reserva;
+    private int id;
+    private boolean Hamburguer;
+    private boolean Pizza;
+    private boolean Batata;
+    private boolean Refrigerante;
+
     //constructor
-    public Estante(int len){   
-        vetor = new Livro[len];
-        index = 0;
+    public Pedido() {
+        Hamburguer = false;
+        Pizza = false;
+        Batata = false;
+        Refrigerante = false;
     }
 
-    public boolean addVet(Livro a){
-        int code_check = fetch(a);
-        if(index >= vetor.length || code_check != -1){
-            return false;
-        } else {
-            vetor[index] = a;
-            index++;
-            return true;
-        }
+    public boolean pedirHamburguer() {
+        Hamburguer = true;
+        return true;
     }
 
-    public boolean rmv_bycode (int codigo){
-        int pos = fetch_bycode(codigo);
-        if(pos == -1){
-            return false;
-        } else {
-            for(int i = pos; i < index-1; i++){
-                vetor[i] = vetor[i+1];
-            }
-            vetor[index-1] = null;
-            index--;
-            return true;
-        }
-    }
-    
-    public int fetch (Livro v){
-        int pos = -1;
-        int codigo = v.get_codigo();
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        return pos;
+    public boolean pedirPizza() {
+        Pizza = true;
+        return true;
     }
 
-    public int fetch_bycode (int codigo){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        return pos;
+    public boolean pedirBatata() {
+        Batata = true;
+        return true;
     }
 
-    public void fetch_bycode_print (int codigo){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
-        }
-        if(pos == -1) System.out.println("A estante nao possui livros com esse codigo");
-        else System.out.println(vetor[pos]);
+    public boolean pedirRefrigerante() {
+        Refrigerante = true;
+        return true;
     }
-    /*  
-     * 
-     public int fetch_byauthor (Livro v){
-        int pos = -1;
-        String autor = v.get_autor();
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        return pos;
-    }
-    */
 
-    public void fetch_byauthor (String autor){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        if(pos == -1)System.out.println("A estante nao possui livros com esse autor");
-        else System.out.println(vetor[pos]);
+    public boolean getHamburguer() {
+        return Hamburguer;
+    }
+
+    public boolean getPizza() {
+        return Pizza;
+    }
+
+    public boolean getBatata() {
+        return Batata;
+    }
+
+    public boolean getRefrigerante() {
+        return Refrigerante;
+    }
+    public String toString(){
+
+        String comanda = "";
+
+        if(Hamburguer == true) comanda += "Hamburguer ";
+        if(Pizza == true) comanda += "Pizza ";
+        if(Batata == true) comanda += "Batata ";
+        if(Refrigerante == true) comanda += "Refrigerante ";
+                
+        return comanda;
     }
 
 
-
-
-    public void print_vet(){
-        for(int i = 0; i < index; i++){
-            System.out.println("\nLivro: " + (i+1) + ":" + vetor[i].toString());
-        }
-    }
-
-
-    
 }

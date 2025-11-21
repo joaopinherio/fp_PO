@@ -22,6 +22,10 @@ public class Reserva{
     public void set_Mesa(Mesa mesa){
         this.mesa = mesa;
     }
+
+    public Cliente get_Cliente(){
+        return cliente;
+    }
     public int get_ID(){
         return id_Reserva;
     }

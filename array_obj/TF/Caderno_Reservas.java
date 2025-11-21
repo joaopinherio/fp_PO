@@ -64,6 +64,19 @@ public class Caderno_Reservas{
         else System.out.println(vetor[pos]);
     }
 
+    public void fetch_byNome (String autor){
+        int pos = -1;
+        for(int i = 0; i < index; i++){
+            if((vetor[i].get_Cliente().getNome().equals(autor)) == true ) pos = i;
+        }
+        if(pos == -1)System.out.println("Nao ha reservas com esse nome de cliente");
+        else{
+            Reserva reserva_aux = vetor[pos];
+            System.out.println("Ha uma reserva feita com esse nome!:");
+            System.out.println(reserva_aux.toString());
+        } 
+    }
+
     public void print_vet(){
         System.out.println("Reservas marcadas:");
         for(int i = 0; i < index; i++){
