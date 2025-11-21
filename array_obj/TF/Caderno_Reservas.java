@@ -9,6 +9,10 @@ public class Caderno_Reservas{
         index = 0;
     }
 
+    public int get_index(){
+        return index;
+    }
+
     public boolean addVet(Reserva a){
         int code_check = fetch(a);
         if(index >= vetor.length || code_check != -1){

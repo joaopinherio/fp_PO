@@ -12,6 +12,10 @@ public class Reserva{
         this.data_hora = data_hora;
     }
 
+    public void set_ID(int id_Reserva){
+        this.id_Reserva = id_Reserva;
+    }
+
     public void set_Cliente(Cliente cliente){
         this.cliente = cliente;
     }

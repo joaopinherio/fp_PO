@@ -28,24 +28,10 @@ public class app_TF {
         System.out.println("controle de res antes:");
         cadernoR.print_vet();
 
-        /*  
-        Cliente cliente1 = new Cliente(1, "rafael", "51 99933212");
-        
-        //pergunta mesa
-        Reserva r1 = new Reserva(cliente1, mesa1, "20h 12/12");
-        cadernoR.addVet(r1);
-        
-        int aux_mesa = mesa1.get_ID();
-        controleM.rmv_byID(aux_mesa);
-        
-        controleM.print_vet();
 
-        cadernoR.print_vet();
-        */
-
-        String option = "";
+        boolean menu = true;
         int op = 0;
-        while ((option.equalsIgnoreCase("sair")) == false) {
+        while (menu == true) {
             print_inicial();
             op = in.nextInt();
 
@@ -56,10 +42,10 @@ public class app_TF {
                     if(cliente.getId() > 0){
                         int aux_idM = cadastra_mesa(controleM);
                         Reserva reserva = new Reserva(cliente, controleM.fetch_Mesa(aux_idM), "20h 12/12");
+                        int aux_id = cadernoR.get_index();
+                        reserva.set_ID(aux_id + 1);
                         cadernoR.addVet(reserva);
                         controleM.rmv_byID(aux_idM);
-                        //cliente = null;
-                        //reserva = null;
                     }
                     break;
                 case 4:
@@ -71,8 +57,11 @@ public class app_TF {
                     cadernoR.print_vet();
                     break;
                 case 6:
-                    option = "sair";
+                    menu = true;
                     System.out.println("Fim de consulta");
+                    break;
+                default:
+                    System.out.println("Digite uma opcao valida!");
                     break;
             }
 
@@ -83,7 +72,7 @@ public class app_TF {
 
     static void print_inicial() {
 
-        System.out.println("============= Bem vindo =========");
+        System.out.println("=========== Bem vindo ===========");
 
         System.out.println("Opcao 1: Cadastra cliente");
         System.out.println("Opcao 4: Controle de mesa");
@@ -105,11 +94,9 @@ public class app_TF {
         Cliente cliente_aux = new Cliente(id, nome, telefone);
 
         System.out.print("Nome do cliente: ");
-        //nome = in.nextLine();
         cliente_aux.setNome(in.nextLine());
+        
         System.out.print("\nTelefone do cliente: ");
-
-        //telefone = in.nextLine();
         cliente_aux.setTel(in.nextLine());
 
         cliente_aux.setId(randomGenerator.nextInt(100 - 1) + 1);
@@ -145,7 +132,7 @@ public class app_TF {
         System.out.println("============= MENU ==============");
 
         System.out.println("Opcao 1: Cadastra Cliente");
-        System.out.println("Opcao 2: Busca livro por codigo");
+       System.out.println("Opcao 2: Busca livro por codigo");
         System.out.println("Opcao 3: Busca livro por autor");
         System.out.println("Opcao 4: Exclui livro por codigo");
         System.out.println("Opcao 5: Exibe os livros disponiveis");
