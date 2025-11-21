@@ -23,7 +23,7 @@ public class Reserva{
     }
     //metodo string
     public String toString(){
-        return "\nCliente:" + cliente.getNome() + "\nMesa: " + mesa.get_ID();
+        return "\nCliente:" + cliente.getNome() + "\nMesa: " + mesa.get_ID() + "\nHorario: " + data_hora;
     }
     
 }
