@@ -1,10 +1,10 @@
 
-public class Caderno_Reservas{
+public class Caderno_Reservas{ 
 
     private Reserva [] vetor;
     private int index;
     //constructor
-    public Caderno_Reservas(int len){   
+    public Caderno_Reservas(int len){ 
         vetor = new Reserva[len];
         index = 0;
     }
@@ -20,8 +20,8 @@ public class Caderno_Reservas{
         }
     }
 
-    public boolean rmv_bycode (int codigo){
-        int pos = fetch_bycode(codigo);
+    public boolean rmv_byID (int id){
+        int pos = fetch_byID(id);
         if(pos == -1){
             return false;
         } else {
@@ -34,58 +34,36 @@ public class Caderno_Reservas{
         }
     }
     
-    public int fetch (Livro v){
+    public int fetch (Reserva v){
         int pos = -1;
-        int codigo = v.get_codigo();
+        int ID = v.get_ID();
         for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
+            if(vetor[i].get_ID() == ID) pos = i;
         }
         return pos;
     }
 
-    public int fetch_bycode (int codigo){
+    public int fetch_byID (int id){
         int pos = -1;
         for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
+            if(vetor[i].get_ID() == id) pos = i;
         }
         return pos;
     }
 
-    public void fetch_bycode_print (int codigo){
+    public void fetch_byID_print (int id){
         int pos = -1;
         for(int i = 0; i < index; i++){
-            if(vetor[i].get_codigo() == codigo) pos = i;
+            if(vetor[i].get_ID() == id) pos = i;
         }
         if(pos == -1) System.out.println("A estante nao possui livros com esse codigo");
         else System.out.println(vetor[pos]);
     }
-    /*  
-     * 
-     public int fetch_byauthor (Livro v){
-        int pos = -1;
-        String autor = v.get_autor();
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        return pos;
-    }
-    */
-
-    public void fetch_byauthor (String autor){
-        int pos = -1;
-        for(int i = 0; i < index; i++){
-            if((vetor[i].get_autor().equals(autor)) == true ) pos = i;
-        }
-        if(pos == -1)System.out.println("A estante nao possui livros com esse autor");
-        else System.out.println(vetor[pos]);
-    }
-
-
-
 
     public void print_vet(){
+        System.out.println("Reservas marcadas:");
         for(int i = 0; i < index; i++){
-            System.out.println("\nLivro: " + (i+1) + ":" + vetor[i].toString());
+            System.out.println("\nReserva "+ i+1 +vetor[i].toString());
         }
     }
 

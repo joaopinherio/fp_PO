@@ -9,7 +9,7 @@ public class Cliente{
         this.nome = nome;
         this.telefone = telefone;
     }
-    public void setId(String id){
+    public void setId(int id){
         this.id_Cliente = id;
     }
     public void setNome(String n){
@@ -21,10 +21,10 @@ public class Cliente{
     public int getId(){
         return id_Cliente;
     }
-    public int getNome(){
+    public String getNome(){
         return nome;
     }
-    public int getTel(){
+    public String getTel(){
         return telefone;
     }
     public String toString(){

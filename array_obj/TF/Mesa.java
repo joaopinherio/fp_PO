@@ -2,30 +2,30 @@ public class Mesa{
 
     private int id_Mesa;
     private int capacidade;
-    private boolean reserva;
+    private boolean ocup;
 
-    public Mesa(int id_Mesa, int capacidade, boolean reserva){
+    public Mesa(int id_Mesa, int capacidade){
         this.id_Mesa =id_Mesa;
         this.capacidade = capacidade;
-        this.reserva = reserva;
+        this.ocup = false;
     }    
-    public void setId(String id){
-        this.id_Mesa = id;
+
+    public void set_Capacidade(int capacidade){
+        this.capacidade = capacidade;
     }
-    public void setCapacidade(String n){
-        this.nome = n;
+    public void set_Ocup(boolean res){
+        this.ocup = res;
     }
-    public void setReserva(boolean res){
-        this.reserva = res;
-    }
-    public int getId(){
+    public int get_ID(){
         return id_Mesa;
     }
     public int getCapacidade(){
         return capacidade;
     }
-    public boolean getReserva(){
-        return reserva;
+
+    public String toString(){
+        return " Mesa: " + id_Mesa;
     }
+
     
 }
