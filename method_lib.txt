@@ -1,0 +1,73 @@
+ARRAY:
+    
+    public static double[] get_array(double a[]){
+        Scanner in = new Scanner (System.in);
+        for (int i = 0; i < a.length; i++){
+            System.out.println("informe um numero: ");
+            a [i] = in.nextDouble();
+        }   
+        return a;
+    }
+
+    public static void print_array(double a []){
+        for (int i = 0; i < a.length; i++){
+            System.out.println("Numero digitado " + (i+1) + ": " +  a [i]);
+        }
+    }
+
+MAT:
+
+    public static int[][] get_mat(int m[][]) {
+        Random randomGenerator = new Random();
+
+        for(int i = 0; i < m.length; i++){
+            for(int j = 0; j < m[0].length; j++){
+                m[i][j] = randomGenerator.nextInt(10);
+            } 
+        }
+        return m;
+    }
+
+    public static void print_mat(int m[][]){
+        for (int i = 0 ; i < m.length; i++) {
+            for(int j = 0; j < m[0].length; j++){
+                System.out.print(m[i][j]+ " ");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public static void print_diagMat(int m[][]){
+        
+        int count_l = 0, count_c = 0;
+        for (int i = 0 ; i < m.length; i++) {
+            for(int j = 0; j < m.length; j++){
+                if(j == count_l && i == count_c){
+                    if(count_l > 0){
+                        for(int k = 0; k < count_l; k++){
+                            System.out.print("  ");
+                        }
+                    }
+                    System.out.println(m[i][j]);
+                    count_c++;
+                    count_l++;   
+                }
+            }
+        }
+    }
+    
+VET_MAT:
+
+    public static int [] jogaNoVetor(int m[][]) {
+        int [] aux_vet = new int[m.length * m[0].length];
+
+        int y = 0;
+        for(int i = 0; i < m.length; i++){
+            for(int j = 0; j < m[0].length; j++){
+                aux_vet [y] = m[i][j];
+                y++;
+            } 
+        }
+        return aux_vet;
+    }
+    
